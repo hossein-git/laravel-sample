@@ -13,6 +13,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Collection;
+use Laravel\Sanctum\HasApiTokens;
 use Modules\Base\Traits\ReadableTimeStampTrait;
 use Modules\User\Database\Factories\UserFactory;
 use Spatie\Image\Exceptions\InvalidManipulation;
@@ -35,7 +36,7 @@ use Spatie\Permission\Traits\HasRoles;
  */
 class User extends Authenticatable implements MustVerifyEmail, HasMedia
 {
-    use SoftDeletes, Notifiable, HasRoles, InteractsWithMedia, HasFactory, ReadableTimeStampTrait;
+    use SoftDeletes, Notifiable, HasApiTokens, HasRoles, InteractsWithMedia, HasFactory, ReadableTimeStampTrait;
 
     public const SUPER_USER_EMAIL = 'mt5@example.com';
 
